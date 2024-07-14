@@ -1,38 +1,207 @@
-.App {
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  font-family: 'Arial', sans-serif;
+  background-color: #fbd3e9;
+  color: #000;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+}
+
+
+.left-column, .right-column {
+  background-color: #f5b7c5;
+  border: 1px solid #ccc;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%; /* Limit the columns to 90% of the page width */
+}
+
+.left-column {
+  justify-content: space-between;
+  
+  height: 100%;
+  width: 80%;
+  padding-right: 20px; /* Add padding to create space */
+  border-right: 1px dashed #ccc; /* Add dashed border to separate columns */
+}
+
+.right-column {
+  background-color:#b78691;
+  flex: none; /* Prevent flex from overriding the width */
+  width: 60%; /* Set the width to 50% of the page */
+  align-items: center;
+  justify-content: center;
+  height: 900px;
+ /* Add some space between columns */
+  padding-left: 20px; /* Add padding to create space */
+  border-left: 1px dashed #ccc; /* Add dashed border to separate columns */
+}
+
+.profile, .position, .comments, .design {
+  margin-bottom: 20px;
+  background-color: #f9e5f0; /* Light colored background */
+  padding: 15px; /* Padding for the content */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.profile h2, .position h3, .comments h3, .design h2 {
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  color: #c54e4e;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content */
+}
+
+.profile img {
+  border-radius: 50%; /* Make the image circular */
+  width: 150px; /* Set a fixed width */
+  height: 150px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the box without distortion */
+  margin-bottom: 20px; /* Add some space below the image */
+}
+
+.position h3, .comments h3, .design h2 {
+  font-size: 30px; /* Increase font size for other headings */
+  font-weight: 600; /* Semi-bold font weight */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.info, .position-info, .comments p {
+  margin: 10px 0;
+  font-family: 'Open Sans', sans-serif; /* Change font family */
+  color: #d66e6e; /* Slightly lighter color for body text */
+  margin: 10px 0;
+  line-height: 1.6; /* Increase line height for better readability */
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.comments p{
+  color: #ddf90e;
+  background-color: #db6bb6;
+}
+.position-info{
+  color: #ddf90e;
+  background-color: #db6bb6; ;
+}
+.upload-box {
+  width: 600px; /* Full width of the parent container */
+  height: 400px; /* Fixed height for the upload box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbd3e9;
+  border: 2px dashed #ccc;
+  position: relative;
+}
+.success-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fbd3e9;
+  color: #333;
+  font-family: 'Arial', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.success-message h1 {
+  font-size: 36px;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.thumbnail {
+  max-width: 100%;
+  max-height: 100%;
+  cursor: pointer;
+  object-fit: cover; /* Ensures the image covers the box without distortion */
+}
+
+.upload-placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.upload-icon {
+  width: 50px;
+  height: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.file-upload input {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.submit {
+  display: block;
+  margin: 20px 0;
+  padding: 12px 24px; /* Increase padding for a bigger button */
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif; /* Change font family */
+  font-size: 18px; /* Increase font size */
+  font-weight: 600; /* Semi-bold font weight */
+  transition: background-color 0.3s; /* Add transition effect */
+  float: right; /* Float button to the right */
+}
+
+.submit:hover {
+  background-color: #555; /* Change background color on hover */
+}
+
+.upvotes {
+  display: flex;
+  align-items: center;
+  font-size: 24px; /* Increase font size for larger thumbs */
+  cursor: pointer; /* Make the cursor a pointer to indicate it's clickable */
+  margin-top: 20px; /* Add margin to space out the elements */
+  font-weight: bold;
+}
+
+.upvotes span {
+  font-size: 32px; /* Further increase the size of the thumb icon */
+  margin-right: 10px; /* Add space between the thumb and the text */
+}
+
+.icon-up, .icon-down {
+  font-size: 24px; /* Increase size of icons */
+  margin: 0 10px;
+}
+
+.icon-up {
+  color: green;
+}
+
+.icon-down {
+  color: red;
 }
